@@ -1,5 +1,5 @@
 import os
-from ConfigParser import SafeConfigParser
+import configparser
 from subprocess import call
 from slack_notifier import sendSlackMessage
 from slack_notifier import upload_file
@@ -12,7 +12,7 @@ if __name__ == "__main__":
 	config_file = os.path.join(parent_dir, INI_FILE_NAME)
 	if( not os.path.exists(config_file)):
 		sys.exit("Could not find config file \"{}\"".format(config_file))
-	parser = SafeConfigParser()
+	parser = configparser.ConfigParser()
 	parser.read(config_file)
 	seafile_root_dir = parser.get("seafile", "seafile_root_dir")
 	seafile_user = parser.get("seafile", "seafile_user")

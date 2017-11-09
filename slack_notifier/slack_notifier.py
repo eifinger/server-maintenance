@@ -1,5 +1,5 @@
 import os
-from ConfigParser import SafeConfigParser
+import configparser
 import argparse
 from slackclient import SlackClient
 
@@ -8,7 +8,7 @@ parent_dir = os.path.dirname(__file__)
 token_file = os.path.join(parent_dir, "token.ini")
 if( not os.path.exists(config_file):
 	sys.exit("Could not find token file \"{}\"".format(token_file))
-parser = SafeConfigParser()
+parser = configparser.ConfigParser()
 parser.read(token_file)
 token = parser.get("slack_notifier", "token")
 
