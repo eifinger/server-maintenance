@@ -10,7 +10,7 @@ if( not os.path.exists(config_file):
 	sys.exit("Could not find token file \"{}\"".format(token_file))
 parser = SafeConfigParser()
 parser.read(token_file)
-token = parser.get("ubuntu_notifier", "token")
+token = parser.get("slack_notifier", "token")
 
 slack_client = SlackClient(token)
 
