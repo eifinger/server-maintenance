@@ -1,8 +1,8 @@
 import os
 import configparser
 from subprocess import call
-from slack_notifier import sendSlackMessage
-from slack_notifier import upload_file
+from slack_notifier.slack_notifier import sendSlackMessage
+from slack_notifier.slack_notifier import upload_file
 
 INI_FILE_NAME = "check_seafile.ini"
 

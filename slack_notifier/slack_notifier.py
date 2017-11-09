@@ -6,7 +6,7 @@ from slackclient import SlackClient
 # instantiate Slack
 parent_dir = os.path.dirname(__file__)
 token_file = os.path.join(parent_dir, "token.ini")
-if( not os.path.exists(config_file):
+if( not os.path.exists(config_file)):
 	sys.exit("Could not find token file \"{}\"".format(token_file))
 parser = configparser.ConfigParser()
 parser.read(token_file)
@@ -40,7 +40,7 @@ if __name__ == "__main__":
 		pass
 	try:
 		channel = args['channel']
-	except: KeyError:
+	except KeyError:
 		pass
 
 	if slack_client.rtm_connect():
