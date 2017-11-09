@@ -10,7 +10,7 @@ if __name__ == "__main__":
 	parent_dir = os.path.dirname(__file__)
 
 	config_file = os.path.join(parent_dir, INI_FILE_NAME)
-	if( not os.path.exists(config_file):
+	if( not os.path.exists(config_file)):
 		sys.exit("Could not find config file \"{}\"".format(config_file))
 	parser = SafeConfigParser()
 	parser.read(config_file)
