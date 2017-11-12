@@ -1,4 +1,5 @@
 import os
+import sys
 import configparser
 from subprocess import call
 from slack_notifier.slack_notifier import sendSlackMessage
