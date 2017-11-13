@@ -45,6 +45,7 @@ if __name__ == "__main__":
 	except KeyError:
 		pass
 
+	print("Token is: \"{}\"".format(token))
 	if slack_client.rtm_connect():
 		sendSlackMessage(args['message'])
 	else:
