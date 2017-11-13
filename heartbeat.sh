@@ -1,6 +1,7 @@
 #!/bin/bash
+scriptDir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
+cd $scriptDir
 now=$(date +"%Y-%m-%d.%H:%M:%S")
 hostname=$(hostname)
-source /home/osmc/maintenance/venv/bin/activate
-python /home/osmc/maintenance/ubuntu_notifier.py -m "Heartbeat: $hostname - $now"
-
+source venv/bin/activate
+python slack_notifier/slack_notifier.py -m "Heartbeat: $hostname - $now"
