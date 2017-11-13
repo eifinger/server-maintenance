@@ -39,6 +39,7 @@ if __name__ == "__main__":
 	try:
 		token = args['token']
 		slack_client = instantiate_Slack_Client(token)
+		print ("CHanged slack client")
 	except KeyError:
 		pass
 	try:
