@@ -37,7 +37,8 @@ if __name__ == "__main__":
 	parser.add_argument('-i','--id', help='The Bot id to use', required=False)
 	args = vars(parser.parse_args())
 	try:
-		slack_client = instantiate_Slack_Client(args['token'])
+		token = args['token']
+		slack_client = instantiate_Slack_Client(token)
 	except KeyError:
 		pass
 	try:
