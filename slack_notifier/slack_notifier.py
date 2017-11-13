@@ -29,7 +29,7 @@ def instantiate_Slack_Client(token):
 	return SlackClient(token)
 
 if __name__ == "__main__":
-	parser = argparse.ArgumentParser(description='Sents Notifications to a Slack Channel')
+	parser = argparse.ArgumentParser(description='Sends Notifications to a Slack Channel')
 	parser.add_argument('-m','--message', help='The message to send', required=True)
 	parser.add_argument('-t','--token', help='The Bot token to use', required=False)
 	parser.add_argument('-c','--channel', help='The channel to use', required=False)
