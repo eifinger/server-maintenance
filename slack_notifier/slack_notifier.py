@@ -12,7 +12,7 @@ if( not os.path.exists(token_file)):
 parser = configparser.ConfigParser()
 parser.read(token_file)
 token = parser.get("slack_notifier", "token")
-print("Token is: {}".format(token))
+print("Token is: \"{}\"".format(token))
 
 slack_client = SlackClient(token)
 
