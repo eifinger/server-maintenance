@@ -36,16 +36,11 @@ if __name__ == "__main__":
 	parser.add_argument('-c','--channel', help='The channel to use', required=False)
 	parser.add_argument('-i','--id', help='The Bot id to use', required=False)
 	args = vars(parser.parse_args())
-	try:
-		token = args['token']
-		slack_client = instantiate_Slack_Client(token)
-		print ("CHanged slack client")
-	except KeyError:
-		print ("KeyError token")
-	try:
+	if (args['token'] != None):
+		slack_client = instantiate_Slack_Client(args['token'])
+		print ("Changed slack client")
+	if (args['channel'] != None):
 		channel = args['channel']
-	except KeyError:
-		pass
 
 	print("Token is: \"{}\"".format(token))
 	if slack_client.rtm_connect():
