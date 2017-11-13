@@ -1,5 +1,7 @@
 #!/bin/bash
+scriptDir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
+cd $scriptDir
 now=$(date +"%Y-%m-%d.%H:%M:%S")
 hostname=$(hostname)
-source /home/eifinger/maintenance/venv/bin/activate
-python /home/eifiger/maintenance/ubuntu_notifier.py -m "$hostname started at $now"
+source venv/bin/activate
+python slack_notifier/slack_notifier.py -m "$hostname started at $now"
