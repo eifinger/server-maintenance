@@ -12,7 +12,6 @@ if( not os.path.exists(token_file)):
 parser = configparser.ConfigParser()
 parser.read(token_file)
 token = parser.get("slack_notifier", "token")
-print("Token is: \"{}\"".format(token))
 
 slack_client = SlackClient(token)
 
@@ -38,11 +37,9 @@ if __name__ == "__main__":
 	args = vars(parser.parse_args())
 	if (args['token'] != None):
 		slack_client = instantiate_Slack_Client(args['token'])
-		print ("Changed slack client")
 	if (args['channel'] != None):
 		channel = args['channel']
 
-	print("Token is: \"{}\"".format(token))
 	if slack_client.rtm_connect():
 		sendSlackMessage(args['message'])
 	else:
