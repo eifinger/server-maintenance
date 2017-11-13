@@ -34,6 +34,7 @@ if __name__ == "__main__":
 	parser.add_argument('-t','--token', help='The Bot token to use', required=False)
 	parser.add_argument('-c','--channel', help='The channel to use', required=False)
 	parser.add_argument('-i','--id', help='The Bot id to use', required=False)
+	parser.add_argument('-f','--filename', help='The Filename to upload', required=False)
 	args = vars(parser.parse_args())
 	if (args['token'] != None):
 		slack_client = instantiate_Slack_Client(args['token'])
@@ -41,6 +42,9 @@ if __name__ == "__main__":
 		channel = args['channel']
 
 	if slack_client.rtm_connect():
-		sendSlackMessage(args['message'])
+		if (args['filename'] != None):
+			upload_file(args['filename'])
+		if (args['message'] != None):
+			sendSlackMessage(args['message'])
 	else:
 		sys.exit("Connection failed. Invalid Slack token or bot ID?")
