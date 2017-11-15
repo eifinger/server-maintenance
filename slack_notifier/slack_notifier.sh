@@ -10,5 +10,6 @@ size=$(( ${#DATA} + 1 ))
 if [ $size -gt 250 ]; then
   echo $DATA > $TEMP_FILE
   python slack_notifier.py -f "$TEMP_FILE" -m "New large message as file"
+else
+  python slack_notifier.py -m "$DATA"
 fi
-python slack_notifier.py -m "$DATA"
