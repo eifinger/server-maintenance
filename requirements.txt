@@ -4,5 +4,5 @@ idna==2.6
 requests>=2.20.0
 six==1.11.0
 slackclient==1.0.9
-urllib3==1.22
+urllib3>=1.23
 websocket-client==0.44.0
